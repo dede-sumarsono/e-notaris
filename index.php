@@ -296,7 +296,7 @@ if (isset ($_POST['tambah'])) {
           </div>
 
         <div class="mb-3">
-          <label for="username">UserName</label>
+          <label for="username">User Name</label>
           <input type="text" name="username" id="username" class="form-control" required>
         </div>
 

@@ -168,15 +168,15 @@ if (isset($_POST['tambah'])) {
         <input type="file" class="form-control" id="fotoktp" name="fotoktpw" placeholder="Upload Foto KTP"
         onchange="previewImg('#fotoktp')">
 
-        <img src="" alt="" class="img-thumbnail img-preview mt-2" width=100px>
+        <!--img src="" alt="" class="img-thumbnail img-preview mt-2" width=100px-->
     </div>
 
-    <div class="mb-3">
+    <div class="mb-3 mt-2">
         <label for="aktapendirian" class="form-label">Pilih File FOTO Akta Pendirian</label>
         <input type="file" class="form-control" id="aktapendirian" name="aktapendirianw"
         onchange="previewImg('#aktapendirian')">
 
-        <img src="" alt="" class="img-thumbnail img-preview mt-2" width=100px>
+        <!--img src="" alt="" class="img-thumbnail img-preview mt-2" width=100px-->
     </div>
 
     <div class="mb-3 mt-2">

@@ -17,10 +17,11 @@ include '../config/app.php';
 //$data_akun = select("SELECT * FROM crud WHERE pendaftar='$_SESSION[nama]'");
 //$data_akun = select("SELECT * FROM crud WHERE statusu='isi data pihak ke-2!'");
 $id_akun = $_GET['menu'];
-if ($_GET['menu']=='listpermintaan') {
+if ($_GET['menu']=='pendaftarbaru') {
     //$data_akun = select("SELECT * FROM crud WHERE statusu='isi data pihak ke-2!'");
     $data_akun = select("SELECT * FROM crud INNER JOIN akun ON iduser = id_akun WHERE statusu='isi data pihak ke-2!'");
 }elseif($_GET['menu']=='pendaftaranpajak'){
+    //$data_akun = select("SELECT * FROM crud INNER JOIN akun ON iduser = id_akun WHERE statusu='pendaftaran pajak oleh notaris'");
     $data_akun = select("SELECT * FROM crud INNER JOIN akun ON iduser = id_akun WHERE statusu='pendaftaran pajak oleh notaris'");
     //$data_akun = select("SELECT * FROM crud INNER JOIN akun ON pendaftar = nama WHERE statusu='isi data pihak ke-2!'");
     //$data_akun = select("SELECT * FROM crud WHERE statusu='pendaftaran pajak oleh notaris'");
@@ -71,11 +72,12 @@ if (isset ($_POST['ubah'])) {
 
 
 <div class="container">
+
+
+<?php if ($_GET['menu']=='pendaftarbaru'): ?>
             <!-- Isi konten -->
         <h3><i class="fas fa-list"></i> Daftar Permintaan Anda</h3>
         <hr>
-
-
 
 
         <table class="table table-bordered table-striped mt-3" id="table">
@@ -85,7 +87,6 @@ if (isset ($_POST['ubah'])) {
             <th scope="col">Pihak Pertama</th>
             <th scope="col">Pihak Ke-Dua</th>
             <th scope="col">No telp</th>
-            <th scope="col">Progress</th>
             <th scope="col">Aksi </th>
             
             </tr>
@@ -101,7 +102,7 @@ if (isset ($_POST['ubah'])) {
 
               <td>
               <?php if ($akun['namap2'] == ""): ?>
-                <a href="daftar/daftaruser.php?id_pendaftar=<?=$akun['idpendaftar']?>" class="btn btn-danger">Tambahkan Data Pihak-2</a>
+                <p style="display: inline;width: 100px;height: 100px;padding: 5px;background-color: red;color:white;">User belum menginput data pihak ke-2</p>
                 <?php endif;?>
                 <?php if ($akun['namap2'] != ""): ?>
                     <?=$akun['namap2']?>
@@ -113,18 +114,62 @@ if (isset ($_POST['ubah'])) {
               </td>
 
               <td>
-              <?=$akun['statusu']?>
-              </td>
-
-              <td>
               <a href="detail.php?id_pendaftar=<?=$akun['idpendaftar']?>" class="btn btn-success">Detail</a>
-              <a href="detail.php?id_pendaftar=<?=$akun['idpendaftar']?>" class="btn btn-warning">Real Selesai</a>
               </td>
             </tr>
           <?php endforeach?>
         </tbody>
         </table>
+<?php endif;?>
 
+
+<?php if ($_GET['menu']=='pendaftaranpajak'): ?>
+            <!-- Isi konten -->
+        <h3><i class="fas fa-list"></i>Permintaan Pendaftaran Pajak</h3>
+        <hr>
+
+
+        <table class="table table-bordered table-striped mt-3" id="table">
+        <thead>
+            <tr>
+            <th scope="col">No</th>
+            <th scope="col">Pihak Pertama</th>
+            <th scope="col">Pihak Ke-Dua</th>
+            <th scope="col">No telp</th>
+            <th scope="col">Aksi </th>
+            
+            </tr>
+        </thead>
+
+        <tbody>
+          <?php $no = 1;?>
+          <?php foreach ($data_akun as $akun):?>
+            <tr>
+              <td><?=$no++;?></td>
+
+              <td><?=$akun['namadir']?></td>
+
+              <td>
+              <?php if ($akun['namap2'] == ""): ?>
+                <p style="display: inline;width: 100px;height: 100px;padding: 5px;background-color: red;color:white;">User belum menginput data pihak ke-2</p>
+                <?php endif;?>
+                <?php if ($akun['namap2'] != ""): ?>
+                    <?=$akun['namap2']?>
+                <?php endif;?>
+              </td>
+
+              <td>
+              <?=$akun['notelepon']?>
+              </td>
+
+              <td>
+              <a href="detail.php?id_pendaftar=<?=$akun['idpendaftar']?>" class="btn btn-success">Detail</a>
+              </td>
+            </tr>
+          <?php endforeach?>
+        </tbody>
+        </table>
+<?php endif;?>
 
 
 

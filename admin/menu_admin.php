@@ -28,8 +28,9 @@ if (isset ($_POST['yakin'])) {
 }
 
 //$data_akun = select("SELECT * FROM crud WHERE pendaftar='$_SESSION[nama]'");
-$data_akun = select("SELECT * FROM crud WHERE waktureal !=''");
-$data_barang = select("SELECT * FROM crud WHERE waktureal !='' ORDER BY waktureal ASC ");
+//$data_akun = select("SELECT * FROM crud WHERE waktureal !=''");
+//$data_barang = select("SELECT * FROM crud WHERE waktureal !='' ORDER BY waktureal ASC ");
+$data_barang = select("SELECT * FROM crud WHERE statusu ='Pendaftaran Selesai' ORDER BY waktureal ASC ");
 
     $get1 = mysqli_query($db, "select * from crud WHERE statusu='isi data pihak ke-2!'");
     $get2 = mysqli_query($db, "select * from crud WHERE statusu='pendaftaran pajak oleh notaris'");
@@ -100,6 +101,8 @@ $data_barang = select("SELECT * FROM crud WHERE waktureal !='' ORDER BY wakturea
               <!--a href="detail.php?id_pendaftar=<!?=$akun['idpendaftar']?>" class="btn btn-warning">Real Selesai</a-->
               <!--a data-bs-toggle="modal" data-bs-target="#modaltambah" href="#">Real Selesai</a-->
               <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modaltambah<?= $akun['idpendaftar'];?>">Real Selesai</button>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modaltambah<?= $akun['idpendaftar'];?>">Rubah Status</button>
+              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modaltambah<?= $akun['idpendaftar'];?>">Rubah Tanggal Real</button>
               </td>
 
 
@@ -121,7 +124,7 @@ $data_barang = select("SELECT * FROM crud WHERE waktureal !='' ORDER BY wakturea
       <div class="container mb-5">
 
       <h1 class="text-center">List Permintaan</h1>
-            <a href="listinfdetail.php?menu=listpermintaan" class="list-group-item d-flex justify-content-between align-items-start">
+            <a href="listinfdetail.php?menu=pendaftarbaru" class="list-group-item d-flex justify-content-between align-items-start">
               <div class="ms-2 me-auto">
               <div class="fw-bold">Pendaftar Baru</div>
                 Cras justo odio
@@ -149,7 +152,7 @@ $data_barang = select("SELECT * FROM crud WHERE waktureal !='' ORDER BY wakturea
 
 
 
-      <?php foreach ($data_akun as $akun): ?>
+      <?php foreach ($data_barang as $akun): ?>
     <div class="modal fade" id="modaltambah<?= $akun['idpendaftar'];?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
