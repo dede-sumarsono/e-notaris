@@ -1,7 +1,5 @@
 <?php 
 
-include "../layout/header.php";
-
 session_start();
 //membatasi halaman sebelum login
 if (!isset($_SESSION["login"])) {
@@ -13,6 +11,7 @@ if (!isset($_SESSION["login"])) {
 }
 
 include '../config/app.php';
+include '../layout/headeradmin.php';
 
 //$data_akun = select("SELECT * FROM crud WHERE pendaftar='$_SESSION[nama]'");
 //$data_akun = select("SELECT * FROM crud WHERE statusu='isi data pihak ke-2!'");
@@ -76,7 +75,7 @@ if (isset ($_POST['ubah'])) {
 
 <?php if ($_GET['menu']=='pendaftarbaru'): ?>
             <!-- Isi konten -->
-        <h3><i class="fas fa-list"></i> Daftar Permintaan Anda</h3>
+        <h3><i class="fas fa-list"></i> Daftar Pendaftar Yang Belum Selesai</h3>
         <hr>
 
 

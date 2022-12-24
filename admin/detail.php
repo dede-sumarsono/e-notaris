@@ -1,5 +1,6 @@
 <?php 
-include '../layout/header.php';
+//include '../layout/header.php';
+include '../layout/headeradmin.php';
 include '../config/app.php';
 
 session_start();

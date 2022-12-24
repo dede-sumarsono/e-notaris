@@ -1,6 +1,7 @@
 <?php 
-include '../layout/header.php';
+
 include '../config/app.php';
+include '../layout/headeradmin.php';
 
 session_start();
 //membatasi halaman sebelum login
@@ -34,7 +35,7 @@ $data_barang = select("SELECT * FROM crud WHERE statusu ='Pendaftaran Selesai' O
 
     $get1 = mysqli_query($db, "select * from crud WHERE statusu='isi data pihak ke-2!'");
     $get2 = mysqli_query($db, "select * from crud WHERE statusu='pendaftaran pajak oleh notaris'");
-    $get3 = mysqli_query($db, "select * from crud WHERE waktureal !='' ");
+    $get3 = mysqli_query($db, "select * from crud WHERE statusu ='Pendaftaran Selesai' ");
     $count1 = mysqli_num_rows($get1);
     $count2 = mysqli_num_rows($get2);
     $count3 = mysqli_num_rows($get3);
@@ -43,6 +44,9 @@ $data_barang = select("SELECT * FROM crud WHERE statusu ='Pendaftaran Selesai' O
 
 
 ?>
+
+
+
 
 <div><a class="navbar-brand" href="#"><?=$_SESSION['nama'] ?></a></div>
         
