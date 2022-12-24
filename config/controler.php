@@ -171,7 +171,7 @@ function create_pesanan($post)
     global $db;
 
     $namauser = strip_tags($post['namauser']);
-    $iduser = strip_tags($post['iduser']);
+    $iduser = strip_tags($post['userid']);
     $layanan = strip_tags($post['pelayanan']);
     $shgb = htmlspecialchars($post['shgbw']);
     $seri = strip_tags($post['seriw']);

@@ -101,8 +101,8 @@ $data_barang = select("SELECT * FROM crud WHERE statusu ='Pendaftaran Selesai' O
               <!--a href="detail.php?id_pendaftar=<!?=$akun['idpendaftar']?>" class="btn btn-warning">Real Selesai</a-->
               <!--a data-bs-toggle="modal" data-bs-target="#modaltambah" href="#">Real Selesai</a-->
               <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modaltambah<?= $akun['idpendaftar'];?>">Real Selesai</button>
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modaltambah<?= $akun['idpendaftar'];?>">Rubah Status</button>
-              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modaltambah<?= $akun['idpendaftar'];?>">Rubah Tanggal Real</button>
+              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalrubahstatus<?= $akun['idpendaftar'];?>">Rubah Status</button>
+              <a href="../daftar/datepicker.php?id_pendaftar=<?=$akun['idpendaftar']?>" class="btn btn-danger">Rubah Tanggal Real</a>
               </td>
 
 
@@ -152,7 +152,55 @@ $data_barang = select("SELECT * FROM crud WHERE statusu ='Pendaftaran Selesai' O
 
 
 
-      <?php foreach ($data_barang as $akun): ?>
+  <?php foreach ($data_barang as $akun): ?>
+    <div class="modal fade" id="modalrubahstatus<?= $akun['idpendaftar'];?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-dark" style ="color:white">
+            <h5 class="modal-title">Pendaftaran User</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+            
+          <p> Rubah Status Pendaftar</p>
+          <form action="" method="post">
+
+          
+          <!--label for="nama">id</label-->
+          <input type="hidden" name="id" id="id" class="form-control" value="<?= $akun['idpendaftar'];?>" required>
+
+
+          <div class="mb-3">
+           <label for="level">Status</label>
+           <select name="level" id="level" class="form-control" required>
+            <?php $status = $akun['level'];?>
+            <option value="1" <?= $status == '' ? 'selected': null?>>Admin</option>
+            <option value="1" <?= $status == 'isi data pihak ke-2!' ? 'selected': null?>>Proses Pengisian Data Pihak ke-2</option>
+            <option value="1" <?= $status == 'isi tanggal real' ? 'selected': null?>>Proses Pengisian Tanggal Real</option>
+            <option value="2" <?= $status == 'pendaftaran pajak oleh notaris' ? 'selected': null?>>Pendaftaran pajak oleh notaris</option>
+            <option value="2" <?= $status == 'Pendaftaran Selesai' ? 'selected': null?>>Pendaftaran Selesai</option>
+            <option value="2" <?= $status == 'Real Selesai!' ? 'selected': null?>>Real Selesai!</option>
+           </select>
+          </div>
+          
+          </div>
+
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
+            <button type="submit" name="yakin" class="btn btn-danger">Yakin</button>
+            
+          </div>
+          
+          </form>
+
+        </div>
+      </div>
+    </div>
+    <?php endforeach;?>
+
+    <?php foreach ($data_barang as $akun): ?>
     <div class="modal fade" id="modaltambah<?= $akun['idpendaftar'];?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -167,8 +215,10 @@ $data_barang = select("SELECT * FROM crud WHERE statusu ='Pendaftaran Selesai' O
           <form action="" method="post">
 
           
-          <label for="nama">id</label>
-          <input type="text" name="id" id="id" class="form-control" value="<?= $akun['idpendaftar'];?>" required>
+          <!--label for="nama">id</label-->
+          <input type="hidden" name="id" id="id" class="form-control" value="<?= $akun['idpendaftar'];?>" required>
+          
+          
           
           </div>
 
