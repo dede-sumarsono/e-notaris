@@ -27,7 +27,10 @@
         $_SESSION['level'] = $hasil['level'];
 
         //jika login benar arahkan ke file index.php
-        header("Location: ../menu.php");
+        if ($_SESSION['level']== '1') {
+          header("Location: ../admin/menu_admin.php");
+        }else if($_SESSION['level']== '2'){
+        header("Location: ../menu.php");}
         exit;
       }
     }
