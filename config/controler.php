@@ -527,5 +527,21 @@ function update_real($post)
     return mysqli_affected_rows($db);
 }
 
+function update_status_pajak($post)
+{
+    global $db;
+
+    $id = strip_tags($post['id']);
+    $statusu = "isi tanggal real";
+    
+
+    $query = "UPDATE crud SET statusu='$statusu' WHERE idpendaftar = $id";
+
+
+    mysqli_query($db,$query);
+
+    return mysqli_affected_rows($db);
+}
+
 ?>
 

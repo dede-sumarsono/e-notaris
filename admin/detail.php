@@ -64,11 +64,11 @@ $data_akun = select("SELECT * FROM crud INNER JOIN akun ON iduser = id_akun WHER
                                 <td style="font-weight:bold"><?= $akun['notelepon']?></td>
                             </tr>
 
-                            <tr>
+                            <!--tr>
                                 <td class="textt">Pelayanan yang dipilih</td>
                                 <td>:</td>
-                                <td><?= $akun['pelayanan']?></td>
-                            </tr>
+                                <td><!?= $akun['pelayanan']?></td>
+                            </tr-->
 
                             <tr>
                                 <td class="textt">Jeni Pelayanan</td>
@@ -123,6 +123,9 @@ $data_akun = select("SELECT * FROM crud INNER JOIN akun ON iduser = id_akun WHER
                                 <td valign="top">:</td>
                                 <td><?= $akun['kewarganegaraan']?></td>
                             </tr>
+
+                            <tr><td><br></td></tr>
+                            <tr><td><h4>Data Yang Diurus</h4></td></tr>
 
 
                             <tr>

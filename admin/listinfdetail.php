@@ -43,17 +43,17 @@ if (isset ($_POST['tambah'])) {
   }
 }
 
-//jika tombol ubah ditekan maka jalankan script berikut
-if (isset ($_POST['ubah'])) {
-  if (update_akun($_POST)>0) {
+//jika tombol tambah ditekan maka jalankan script berikut
+if (isset ($_POST['yakin'])) {
+  if (update_status_pajak($_POST)>0) {
     echo "<script>
-                alert('Data akun berhasil diubah');
-                document.location.href = 'index.php'
+                alert('Data berhasil diperbaharui');
+                document.location.href = 'menu_admin.php'
                 </script>";
   }else {
     echo "<script>
-                alert('Data akun tidak berhasil diubah');
-                document.location.href = 'index.php'
+                alert('Data akun tidak berhasil ditambahkan');
+                document.location.href = 'menu_admin.php'
                 </script>";
   }
 }
@@ -163,6 +163,7 @@ if (isset ($_POST['ubah'])) {
 
               <td>
               <a href="detail.php?id_pendaftar=<?=$akun['idpendaftar']?>" class="btn btn-success">Detail</a>
+              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalpajak<?= $akun['idpendaftar'];?>">Pajak Sudah Selesai</button>
               </td>
             </tr>
           <?php endforeach?>
@@ -180,148 +181,42 @@ if (isset ($_POST['ubah'])) {
 
 
 
-  <div class="modal fade" id="modaltambah" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header bg-primary" style ="color:white">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-
-      <div class="modal-body">
-        <form action="" method="post">
-
-          <div class="mb-3">
-          <label for="nama">Nama</label>
-          <input type="text" name="nama" id="nama" class="form-control" required>
+    <?php foreach ($data_akun as $akun): ?>
+    <div class="modal fade" id="modalpajak<?= $akun['idpendaftar'];?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-dark" style ="color:white">
+            <h5 class="modal-title">Pendaftaran User</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
-        <div class="mb-3">
-          <label for="username">UserName</label>
-          <input type="text" name="username" id="username" class="form-control" required>
-        </div>
+          <div class="modal-body">
+            
+          <p> Rubah Status Pajak Pendaftar Menjadi Oke?</p>
+          <form action="" method="post">
 
-        <div class="mb-3">
-           <label for="email">E-mail</label>
-          <input type="email" name="email" id="email" class="form-control" required>
-        </div>
+          
+          <!--label for="nama">id</label-->
+          <input type="hidden" name="id" id="id" class="form-control" value="<?= $akun['idpendaftar'];?>" required>
 
-        <div class="mb-3">
-           <label for="password">Password</label>
-          <input type="password" name="password" id="password" class="form-control" required minlength='6'>
-        </div>
 
-        <div class="mb-3">
-           <label for="level">Level</label>
-           <select name="level" id="level" class="form-control" required>
-            <option value="">-- Pilih Level --</option>
-            <option value="1">Admin</option>
-            <option value="2">User</option>
-           </select>
+          
+          
           </div>
 
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
+            <button type="submit" name="yakin" class="btn btn-danger">Yakin</button>
+            
+          </div>
+          
+          </form>
+
+        </div>
       </div>
-
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
-        <button type="submit" name="tambah" class="btn btn-primary">Tambah</button>
-        
-      </div>
-      </form>
-
     </div>
-  </div>
-</div>
-
-<?php foreach ($data_akun as $akun): ?>
-
-  
-
-    <!-- modal ubah-->
-  <div class="modal fade" id="modalubah<?=$akun['id_akun'];?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header" style ="background-color:rgb(81, 192, 87); color:white">
-        <h5 class="modal-title" id="exampleModalLabel">Ubah Akun</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-          <!--span aria-hidden="true">&times;</span-->
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="" method="post">
-          <input type="hidden" name="id_akun" value="<?= $akun['id_akun'];?>">
-
-
-          <div class="mb-3">
-          <label for="nama">Nama</label>
-          <input type="text" name="nama" id="nama" class="form-control" value="<?=$akun['nama']?>" required>
-          </div>
-
-        <div class="mb-3">
-          <label for="username">UserName</label>
-          <input type="text" name="username" id="username" class="form-control" value="<?=$akun['username']?>" required>
-        </div>
-
-        <div class="mb-3">
-           <label for="email">E-mail</label>
-          <input type="email" name="email" id="email" class="form-control" value="<?=$akun['email']?>" required>
-        </div>
-
-        <div class="mb-3">
-           <label for="password">Password<small>(Masukan Password Baru/Lama)</small></label>
-          <input type="password" name="password" id="password" class="form-control" value="<?=$akun['nama']?>" required minlength='6'>
-        </div>
-
-        <div class="mb-3">
-           <label for="level">Level</label>
-           <select name="level" id="level" class="form-control" required>
-            <?php $level = $akun['level'];?>
-            <option value="1" <?= $level == '1' ? 'selected': null?>>Admin</option>
-            <option value="2" <?= $level == '2' ? 'selected': null?>>User</option>
-           </select>
-          </div>
-        
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
-        <button type="submit" name="ubah" class="btn btn-success">Ubah</button>
-      </div>
-      </form>
-
-    </div>
-  </div>
-</div>
-
-  <?php endforeach;?>
-
-
-<?php foreach ($data_akun as $akun): ?>
-  <!-- modal hapus-->
-<div class="modal fade" id="modalhapus<?= $akun['id_akun'];?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header" style ="background-color:#cc1e1e; color:white">
-        <h5 class="modal-title" id="exampleModalLabel">Hapus Akun</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-          <!--span aria-hidden="true">&times;</span-->
-        </button>
-      </div>
-      <div class="modal-body">
-        <p> Yakin ingin menghapus akun : <?= $akun['nama']?> ?</p>
-        
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
-        <a href="btnphp/hapusakun.php?id_akun=<?= $akun['id_akun']; ?>"  class="btn btn-danger">Hapus</a>
-      </div>
-
-    </div>
-  </div>
-</div>
-  <?php endforeach; ?>
+    <?php endforeach;?>
 
 
 
