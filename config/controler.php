@@ -110,13 +110,16 @@ function upload_file3($filefoto2){
 
 }
 
-
-//fungsi menambahkan data pendaftar boleh dihapus kalau sudah jadi
-/*function create_barang($post)
+//ini fungsi utama dari daftar2.php
+function create_pesanan_perorangan($post)
 {
     global $db;
 
+    $namauser = strip_tags($post['namauser']);
+    $iduser = strip_tags($post['userid']);
     $layanan = strip_tags($post['pelayanan']);
+    $jenislayanan = 'perorangan';
+
     $shgb = htmlspecialchars($post['shgbw']);
     $seri = strip_tags($post['seriw']);
     $provinsi = strip_tags($post['provinsiw']);
@@ -135,20 +138,32 @@ function upload_file3($filefoto2){
     $statusdir = strip_tags($post['statusdirw']);
     $pekerjaandir = strip_tags($post['pekerjaandirw']);
     $kewarganegaraan = strip_tags($post['kewarganegaraanw']);
+
+    $nikdir2 = strip_tags($post['nikdirw3']);
+    $namadir2 = strip_tags($post['namadirw3']);
+    $ttl2 = strip_tags($post['ttlw3']);
+    $alamatdir2 = strip_tags($post['alamatdirw3']);
+    $rtrw2 = strip_tags($post['rtrww3']);
+    $kelurahan2 = strip_tags($post['kelurahanw3']);
+    $statusdir2 = strip_tags($post['statusdirw3']);
+    $pekerjaandir2 = strip_tags($post['pekerjaandirw3']);
+    $kewarganegaraan2 = strip_tags($post['kewarganegaraanw3']);
+
     $fotoktp = strip_tags(upload_file2($_FILES['fotoktpw']));
-    $aktapendirian = strip_tags(upload_file2($_FILES['aktapendirianw']));
-    $aktaterakhir = strip_tags(upload_file2($_FILES['aktaterakhirw']));
-    $aktabbg = strip_tags(upload_file2($_FILES['aktabbgw']));
-    $suratpersetujuandekom = strip_tags(upload_file2($_FILES['suratpersetujuandekomw']));
+    $fotoktpsi = strip_tags(upload_file2($_FILES['fotoktpsiw']));
+    //$aktaterakhir = strip_tags(upload_file2($_FILES['aktaterakhirw']));
+    //$aktabbg = strip_tags(upload_file2($_FILES['aktabbgw']));
+    //$suratpersetujuandekom = strip_tags(upload_file2($_FILES['suratpersetujuandekomw']));
     $ppb = strip_tags(upload_file2($_FILES['pbbw']));
     $imbpbg = strip_tags(upload_file2($_FILES['imbpbgw']));
     $shgbp = strip_tags(upload_file2($_FILES['shgbw']));
-    $ktppt = strip_tags(upload_file2($_FILES['ktpptw']));
-    $npwppt = strip_tags(upload_file2($_FILES['npwpptw']));
-    $brosur = strip_tags(upload_file2($_FILES['brosurw']));
-    $pricelist = strip_tags(upload_file2($_FILES['pricelistw']));
-    $shepian = strip_tags(upload_file2($_FILES['shepianw']));
+    //$ktppt = strip_tags(upload_file2($_FILES['ktpptw']));
+    //$npwppt = strip_tags(upload_file2($_FILES['npwpptw']));
+    //$brosur = strip_tags(upload_file2($_FILES['brosurw']));
+    //$pricelist = strip_tags(upload_file2($_FILES['pricelistw']));
+    $denahlokasi = strip_tags(upload_file2($_FILES['fotodenahlokasiw']));
     $fotolokasi = strip_tags(upload_file2($_FILES['fotolokasiw']));
+    $statusu = "isi data pihak ke-2!";
     //$fotoktp = strip_tags(upload_file());
 
     //check upload file
@@ -157,13 +172,20 @@ function upload_file3($filefoto2){
     }
 
     //query tambah data
-    $query = "INSERT INTO crud VALUES(null,'$layanan','$shgb','$seri','$provinsi','$kabupaten','$kecamatan','$tanggalsu','$luastanah','$luasbangunan','$hargajualbeli','$nikdir','$namadir','$ttl','$alamatdir','$rtrw','$kelurahan','$statusdir','$pekerjaandir','$kewarganegaraan','$fotoktp',
-    '$aktapendirian','$aktaterakhir','$aktabbg','$suratpersetujuandekom','$ppb','$imbpbg','$shgbp','$ktppt','$npwppt','$brosur','$pricelist','$shepian','$fotolokasi',CURRENT_TIMESTAMP())";
+    //$query = "INSERT INTO crud VALUES(null,'$layanan','$shgb','$seri','$provinsi','$kabupaten','$kecamatan','$tanggalsu','$luastanah','$luasbangunan','$hargajualbeli','$nikdir','$namadir','$ttl','$alamatdir','$rtrw','$kelurahan','$statusdir','$pekerjaandir','$kewarganegaraan','$fotoktp',
+    //'$aktapendirian','$aktaterakhir','$aktabbg','$suratpersetujuandekom','$ppb','$imbpbg','$shgbp','$ktppt','$npwppt','$brosur','$pricelist','$shepian','$fotolokasi',CURRENT_TIMESTAMP())";
+
+    $query = "INSERT INTO crud (idpendaftar,pendaftar,iduser,pelayanan,shgb,seri,provinsi,kabupaten,kecamatan,tanggalsu,luastanah,luasbangunan,hargajualbeli,nikdir,namadir,ttl,alamatdir,rtrw,kelurahan,statusdir,pekerjaandir,kewarganegaraan,foto,ppb,imbpbg,shgbp,fotoktpsi,denahlokasi,fotolokasi,tanggal,statusu,niksi,namasi,ttlsi,alamatsi,statussi,rtrwsi,kelurahansi,pekerjaansi,kewarganegaraansi,jenislayanan)
+    VALUES(null,'$namauser','$iduser','$layanan','$shgb','$seri','$provinsi','$kabupaten','$kecamatan','$tanggalsu','$luastanah','$luasbangunan','$hargajualbeli','$nikdir','$namadir','$ttl','$alamatdir','$rtrw','$kelurahan','$statusdir','$pekerjaandir','$kewarganegaraan','$fotoktp','$ppb','$imbpbg','$shgbp','$fotoktpsi','$denahlokasi','$fotolokasi',CURRENT_TIMESTAMP(),'$statusu','$nikdir2','$namadir2','$ttl2','$alamatdir2','$statusdir2','$rtrw2','$kelurahan2','$pekerjaandir2','$kewarganegaraan2','$jenislayanan')";
+
+
+
+    //$query = "INSERT INTO akun (username) VALUES('$username')";
 
     mysqli_query($db,$query);
 
     return mysqli_affected_rows($db);
-}*/
+}
 
 //ini fungsi utama dari daftar.php
 function create_pesanan($post)
@@ -173,6 +195,8 @@ function create_pesanan($post)
     $namauser = strip_tags($post['namauser']);
     $iduser = strip_tags($post['userid']);
     $layanan = strip_tags($post['pelayanan']);
+    $jenislayanan = 'pt';
+
     $shgb = htmlspecialchars($post['shgbw']);
     $seri = strip_tags($post['seriw']);
     $provinsi = strip_tags($post['provinsiw']);
@@ -217,8 +241,8 @@ function create_pesanan($post)
     //$query = "INSERT INTO crud VALUES(null,'$layanan','$shgb','$seri','$provinsi','$kabupaten','$kecamatan','$tanggalsu','$luastanah','$luasbangunan','$hargajualbeli','$nikdir','$namadir','$ttl','$alamatdir','$rtrw','$kelurahan','$statusdir','$pekerjaandir','$kewarganegaraan','$fotoktp',
     //'$aktapendirian','$aktaterakhir','$aktabbg','$suratpersetujuandekom','$ppb','$imbpbg','$shgbp','$ktppt','$npwppt','$brosur','$pricelist','$shepian','$fotolokasi',CURRENT_TIMESTAMP())";
 
-    $query = "INSERT INTO crud (idpendaftar,pendaftar,iduser,pelayanan,shgb,seri,provinsi,kabupaten,kecamatan,tanggalsu,luastanah,luasbangunan,hargajualbeli,nikdir,namadir,ttl,alamatdir,rtrw,kelurahan,statusdir,pekerjaandir,kewarganegaraan,foto,aktapendirian,aktaterakhir,aktabbg,suratpersetujuandekom,ppb,imbpbg,shgbp,ktppt,npwppt,brosur,pricelist,shepian,fotolokasi,tanggal,statusu) 
-    VALUES(null,'$namauser','$iduser','$layanan','$shgb','$seri','$provinsi','$kabupaten','$kecamatan','$tanggalsu','$luastanah','$luasbangunan','$hargajualbeli','$nikdir','$namadir','$ttl','$alamatdir','$rtrw','$kelurahan','$statusdir','$pekerjaandir','$kewarganegaraan','$fotoktp','$aktapendirian','$aktaterakhir','$aktabbg','$suratpersetujuandekom','$ppb','$imbpbg','$shgbp','$ktppt','$npwppt','$brosur','$pricelist','$shepian','$fotolokasi',CURRENT_TIMESTAMP(),'$statusu')";
+    $query = "INSERT INTO crud (idpendaftar,pendaftar,iduser,pelayanan,shgb,seri,provinsi,kabupaten,kecamatan,tanggalsu,luastanah,luasbangunan,hargajualbeli,nikdir,namadir,ttl,alamatdir,rtrw,kelurahan,statusdir,pekerjaandir,kewarganegaraan,foto,aktapendirian,aktaterakhir,aktabbg,suratpersetujuandekom,ppb,imbpbg,shgbp,ktppt,npwppt,brosur,pricelist,shepian,fotolokasi,tanggal,statusu,jenislayanan) 
+    VALUES(null,'$namauser','$iduser','$layanan','$shgb','$seri','$provinsi','$kabupaten','$kecamatan','$tanggalsu','$luastanah','$luasbangunan','$hargajualbeli','$nikdir','$namadir','$ttl','$alamatdir','$rtrw','$kelurahan','$statusdir','$pekerjaandir','$kewarganegaraan','$fotoktp','$aktapendirian','$aktaterakhir','$aktabbg','$suratpersetujuandekom','$ppb','$imbpbg','$shgbp','$ktppt','$npwppt','$brosur','$pricelist','$shepian','$fotolokasi',CURRENT_TIMESTAMP(),'$statusu','$jenislayanan')";
 
     
     //$query = "INSERT INTO akun (username) VALUES('$username')";
