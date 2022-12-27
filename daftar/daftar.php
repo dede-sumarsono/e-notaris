@@ -7,7 +7,7 @@ session_start();
 if (!isset($_SESSION["login"])) {
     echo "<script>
           alert('Login dulu dong');
-          document.location.href='../login/login.php';
+          document.location.href='../login/login';
           </script>";
           exit;
   }
@@ -18,12 +18,12 @@ if (isset($_POST['tambah'])) {
     if (create_pesanan($_POST) > 0) {
         echo "<script>
                 alert('Data berhasil ditambahkan');
-                document.location.href = '../permintaan.php'
+                document.location.href = '../permintaan'
                 </script>";
     }else {
         echo "<script>
                 alert('Data gagal ditambahkan');
-                document.location.href = 'daftar.php'
+                document.location.href = 'daftar'
                 </script>";
     }
 }

@@ -6,7 +6,7 @@ session_start();
 if (!isset($_SESSION["login"])) {
   echo "<script>
         alert('Login dulu dong');
-        document.location.href='../login/login.php';
+        document.location.href='../login/login';
         </script>";
         exit;
 }
@@ -172,10 +172,10 @@ if (!isset($_SESSION["login"])) {
 
 <div class="row mt-2 mb-5">
 <div class="col-sm-6 text-end mt-2 mb-4">
-<a href="daftar/daftar.php?pilihan=peralihanhak" class="btn btn-danger">Daftar Sekarang ! (Untuk PT)  </a>
+<a href="daftar/daftar?pilihan=peralihanhak" class="btn btn-danger">Daftar Sekarang ! (Untuk PT)  </a>
 </div>
 <div class="col-sm-6 text-start mt-2 mb-4">
-<a href="daftar/daftar2.php?pilihan=peralihanhak" class="btn btn-success">Daftar Sekarang ! (Perorangan)</a>
+<a href="daftar/daftar2?pilihan=peralihanhak" class="btn btn-success">Daftar Sekarang ! (Perorangan)</a>
 </div>
 </div>
 
@@ -233,10 +233,10 @@ if (!isset($_SESSION["login"])) {
 
 <div class="row mt-2 mb-5">
 <div class="col-sm-6 text-end mt-2 mb-4">
-<a href="daftar/daftar.php?pilihan=haktanggungan" class="btn btn-danger">Daftar Sekarang ! (Untuk PT)  </a>
+<a href="daftar/daftar?pilihan=haktanggungan" class="btn btn-danger">Daftar Sekarang ! (Untuk PT)  </a>
 </div>
 <div class="col-sm-6 text-start mt-2 mb-4">
-<a href="daftar/daftar2.php?pilihan=haktanggungan" class="btn btn-success">Daftar Sekarang ! (Perorangan)</a>
+<a href="daftar/daftar2?pilihan=haktanggungan" class="btn btn-success">Daftar Sekarang ! (Perorangan)</a>
 </div>
 </div>
 
@@ -261,7 +261,7 @@ if (!isset($_SESSION["login"])) {
         <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
         <!-- <a href="#" class="btn btn-primary">Daftar</a>-->
         
-        <form action="daftar.php" method="post">
+        <form action="daftar" method="post">
         </form>
       </div>
     </div>
@@ -308,7 +308,7 @@ if (!isset($_SESSION["login"])) {
 </div-->
 
 <div class="container text-center mt-3 mb-5">
-<a href="daftar/daftar2.php?pilihan=layanannotaris" class="btn btn-success">Daftar Sekarang ! (Perorangan)</a>
+<a href="daftar/daftar2?pilihan=layanannotaris" class="btn btn-success">Daftar Sekarang ! (Perorangan)</a>
 </div>
 
 <!-- tutup content Layanan Notaris-->

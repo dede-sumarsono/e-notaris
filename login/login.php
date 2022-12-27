@@ -28,9 +28,9 @@
 
         //jika login benar arahkan ke file index.php
         if ($_SESSION['level']== '1') {
-          header("Location: ../admin/menu_admin.php");
+          header("Location: ../admin/menu_admin");
         }else if($_SESSION['level']== '2'){
-        header("Location: ../menu.php");}
+        header("Location: ../menu");}
         exit;
       }
     }

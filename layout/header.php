@@ -23,14 +23,14 @@
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-            <a class="nav-link" href="../index.php">Home Page</a>
+            <a class="nav-link" href="../index">Home Page</a>
             </li>
             <li class="nav-item">
-            <!--a class="nav-link active" aria-current="page" href="menu.php">Menu Layanan</a-->
-            <a class="nav-link" href="../menu.php">Menu Layanan</a>
+            <!--a class="nav-link active" aria-current="page" href="menu.pdhp">Menu Layanan</a-->
+            <a class="nav-link" href="../menu">Menu Layanan</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="../permintaan.php">Permintaan</a>
+            <a class="nav-link" href="../permintaan">Permintaan</a>
             </li>
             <li class="nav-item">
             <!--a class="nav-link" href="#">Keluar</a-->

@@ -8,7 +8,7 @@ session_start();
 if (!isset($_SESSION["login"])) {
   echo "<script>
         alert('Login dulu dong');
-        document.location.href='../login/login.php';
+        document.location.href='../login/login';
         </script>";
         exit;
 }
@@ -18,12 +18,12 @@ if (isset ($_POST['yakin'])) {
   if (update_real($_POST)>0) {
     echo "<script>
                 alert('Data berhasil diperbaharui');
-                document.location.href = 'menu_admin.php'
+                document.location.href = 'menu_admin'
                 </script>";
   }else {
     echo "<script>
                 alert('Data akun tidak berhasil ditambahkan');
-                document.location.href = 'menu_admin.php'
+                document.location.href = 'menu_admin'
                 </script>";
   }
 }
@@ -83,7 +83,7 @@ $data_barang = select("SELECT * FROM crud WHERE statusu ='Pendaftaran Selesai' O
 
               <td>
               <?php if ($akun['namap2'] == ""): ?>
-                <a href="daftar/daftaruser.php?id_pendaftar=<?=$akun['idpendaftar']?>" class="btn btn-danger">Tambahkan Data Pihak-2</a>
+                <a href="daftar/daftaruser?id_pendaftar=<?=$akun['idpendaftar']?>" class="btn btn-danger">Tambahkan Data Pihak-2</a>
                 <?php endif;?>
                 <?php if ($akun['namap2'] != ""): ?>
                     <?=$akun['namap2']?>
@@ -101,12 +101,12 @@ $data_barang = select("SELECT * FROM crud WHERE statusu ='Pendaftaran Selesai' O
               </td>
               
               <td>
-              <a href="detail.php?id_pendaftar=<?=$akun['idpendaftar']?>" class="btn btn-success">Detail</a>
+              <a href="detail?id_pendaftar=<?=$akun['idpendaftar']?>" class="btn btn-success">Detail</a>
               <!--a href="detail.php?id_pendaftar=<!?=$akun['idpendaftar']?>" class="btn btn-warning">Real Selesai</a-->
               <!--a data-bs-toggle="modal" data-bs-target="#modaltambah" href="#">Real Selesai</a-->
               <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modaltambah<?= $akun['idpendaftar'];?>">Real Selesai</button>
               <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalrubahstatus<?= $akun['idpendaftar'];?>">Rubah Status</button>
-              <a href="../daftar/datepicker.php?id_pendaftar=<?=$akun['idpendaftar']?>" class="btn btn-danger">Rubah Tanggal Real</a>
+              <a href="../daftar/datepicker?id_pendaftar=<?=$akun['idpendaftar']?>" class="btn btn-danger">Rubah Tanggal Real</a>
               </td>
 
 
@@ -128,7 +128,7 @@ $data_barang = select("SELECT * FROM crud WHERE statusu ='Pendaftaran Selesai' O
       <div class="container mb-5">
 
       <h1 class="text-center">List Permintaan</h1>
-            <a href="listinfdetail.php?menu=pendaftarbaru" class="list-group-item d-flex justify-content-between align-items-start">
+            <a href="listinfdetail?menu=pendaftarbaru" class="list-group-item d-flex justify-content-between align-items-start">
               <div class="ms-2 me-auto">
               <div class="fw-bold">Pendaftar Baru</div>
                 Cras justo odio
@@ -136,7 +136,7 @@ $data_barang = select("SELECT * FROM crud WHERE statusu ='Pendaftaran Selesai' O
               <span class="badge bg-primary rounded-pill"><?php echo "$count1"; ?></span>
             </a>
 
-            <a href="listinfdetail.php?menu=pendaftaranpajak" class="list-group-item d-flex justify-content-between align-items-start">
+            <a href="listinfdetail?menu=pendaftaranpajak" class="list-group-item d-flex justify-content-between align-items-start">
               <div class="ms-2 me-auto">
               <div class="fw-bold">Permintaan Pendaftaran Pajak</div>
               Cras justo odio
@@ -178,13 +178,12 @@ $data_barang = select("SELECT * FROM crud WHERE statusu ='Pendaftaran Selesai' O
           <div class="mb-3">
            <label for="level">Status</label>
            <select name="level" id="level" class="form-control" required>
-            <?php $status = $akun['level'];?>
-            <option value="1" <?= $status == '' ? 'selected': null?>>Admin</option>
-            <option value="1" <?= $status == 'isi data pihak ke-2!' ? 'selected': null?>>Proses Pengisian Data Pihak ke-2</option>
-            <option value="1" <?= $status == 'isi tanggal real' ? 'selected': null?>>Proses Pengisian Tanggal Real</option>
-            <option value="2" <?= $status == 'pendaftaran pajak oleh notaris' ? 'selected': null?>>Pendaftaran pajak oleh notaris</option>
-            <option value="2" <?= $status == 'Pendaftaran Selesai' ? 'selected': null?>>Pendaftaran Selesai</option>
-            <option value="2" <?= $status == 'Real Selesai!' ? 'selected': null?>>Real Selesai!</option>
+            <?php $status = $akun['statusu'];?>
+            <option value="isi data pihak ke-2!" <?= $status == 'isi data pihak ke-2!' ? 'selected': null?>>Proses Pengisian Data Pihak ke-2</option>
+            <option value="isi tanggal real" <?= $status == 'isi tanggal real' ? 'selected': null?>>Proses Pengisian Tanggal Real</option>
+            <option value="pendaftaran pajak oleh notaris" <?= $status == 'pendaftaran pajak oleh notaris' ? 'selected': null?>>Pendaftaran pajak oleh notaris</option>
+            <option value="Pendaftaran Selesai" <?= $status == 'Pendaftaran Selesai' ? 'selected': null?>>Pendaftaran Selesai</option>
+            <option value="Real Selesai!" <?= $status == 'Real Selesai!' ? 'selected': null?>>Real Selesai!</option>
            </select>
           </div>
           

@@ -10,12 +10,12 @@ if (isset ($_POST['tambah'])) {
   if (create_akun($_POST)>0) {
     echo "<script>
                 alert('Data akun berhasil ditambahkan');
-                document.location.href = 'login/login.php'
+                document.location.href = 'login/login'
                 </script>";
   }else {
     echo "<script>
                 alert('Data akun tidak berhasil ditambahkan');
-                document.location.href = 'index.php'
+                document.location.href = 'index'
                 </script>";
   }
 }
@@ -56,7 +56,7 @@ if (isset ($_POST['tambah'])) {
             
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link" href="index.php">Home</a>
+                <a class="nav-link" href="index">Home</a>
                 <a class="nav-link" href="#layanan">Layanan</a>
                 <a class="nav-link" href="#portofolio">Portofolio</a>
                 <a class="nav-link" href="#tentang">Tentang</a>
@@ -67,7 +67,7 @@ if (isset ($_POST['tambah'])) {
             <div class="collapse navbar-collapse text-right" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                    <a class="nav-link" href="login/login.php">Login</a>
+                    <a class="nav-link" href="login/login">Login</a>
                     </li>
                     <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="modal" data-bs-target="#modaltambah" href="#">Daftar</a>
@@ -85,7 +85,7 @@ if (isset ($_POST['tambah'])) {
     <div class="container text-center">
         <h4 class="display-6 text-center">Selamat Datang di Website Kami</h4>
         <h3 class="display-1 text-center">Hai! Halo!</h3>
-        <a href="login/login.php">
+        <a href="login/login">
             <button type="button" class="btn btn-danger btn-lg ">Login</button>
         </a>
         <p>atau</p>

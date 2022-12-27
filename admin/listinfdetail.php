@@ -5,7 +5,7 @@ session_start();
 if (!isset($_SESSION["login"])) {
     echo "<script>
         alert('Login dulu dong');
-        document.location.href='../login/login.php';
+        document.location.href='../login/login';
         </script>";
         exit;
 }
@@ -33,12 +33,12 @@ if (isset ($_POST['tambah'])) {
   if (create_akun($_POST)>0) {
     echo "<script>
                 alert('Data akun berhasil ditambahkan');
-                document.location.href = 'index.php'
+                document.location.href = 'index'
                 </script>";
   }else {
     echo "<script>
                 alert('Data akun tidak berhasil ditambahkan');
-                document.location.href = 'index.php'
+                document.location.href = 'index'
                 </script>";
   }
 }
@@ -48,12 +48,12 @@ if (isset ($_POST['yakin'])) {
   if (update_status_pajak($_POST)>0) {
     echo "<script>
                 alert('Data berhasil diperbaharui');
-                document.location.href = 'menu_admin.php'
+                document.location.href = 'menu_admin'
                 </script>";
   }else {
     echo "<script>
                 alert('Data akun tidak berhasil ditambahkan');
-                document.location.href = 'menu_admin.php'
+                document.location.href = 'menu_admin'
                 </script>";
   }
 }
@@ -113,7 +113,7 @@ if (isset ($_POST['yakin'])) {
               </td>
 
               <td>
-              <a href="detail.php?id_pendaftar=<?=$akun['idpendaftar']?>" class="btn btn-success">Detail</a>
+              <a href="detail?id_pendaftar=<?=$akun['idpendaftar']?>" class="btn btn-success">Detail</a>
               </td>
             </tr>
           <?php endforeach?>
@@ -162,7 +162,7 @@ if (isset ($_POST['yakin'])) {
               </td>
 
               <td>
-              <a href="detail.php?id_pendaftar=<?=$akun['idpendaftar']?>" class="btn btn-success">Detail</a>
+              <a href="detail?id_pendaftar=<?=$akun['idpendaftar']?>" class="btn btn-success">Detail</a>
               <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalpajak<?= $akun['idpendaftar'];?>">Pajak Sudah Selesai</button>
               </td>
             </tr>

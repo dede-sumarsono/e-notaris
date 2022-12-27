@@ -21,7 +21,7 @@
   </head>
   <body>
 
-  <!-- nav bar -->
+  <!-- nav bar KAYAKNYA   INI  TIDAK  TERPAKAI-->
     <div>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
@@ -32,17 +32,17 @@
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-            <a class="nav-link" href="../index.php">Home Page</a>
+            <a class="nav-link" href="../index">Home Page</a>
             </li>
             <li class="nav-item">
             <!--a class="nav-link active" aria-current="page" href="menu.php">Menu Layanan</a-->
-            <a class="nav-link" href="../menu.php">Menu Layanan</a>
+            <a class="nav-link" href="../menu">Menu Layanan</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Permintaan</a>
+            <a class="nav-link" href="../permintaan">Permintaan</a>
             </li>
             <li class="nav-item">
-            <a class="nav-link" href="#">Keluar</a>
+            <a class="nav-link" href="../login/keluar.php">Keluar</a>
             </li>
         </ul>
         </div>
@@ -62,7 +62,7 @@ session_start();
 if (!isset($_SESSION["login"])) {
     echo "<script>
           alert('Login dulu dong');
-          document.location.href='../login/login.php';
+          document.location.href='../login/login';
           </script>";
           exit;
   }
@@ -72,12 +72,12 @@ if (isset($_POST['tambahsesi5'])) {
     if (sesi3($_POST) > 0) {
         echo "<script>
                 alert('Data berhasil ditambahkan');
-                document.location.href = 'daftarpajak.php'
+                document.location.href = 'daftarpajak'
                 </script>";
     }else {
         echo "<script>
                 alert('Data gagal ditambahkan');
-                document.location.href = 'daftaruser.php'
+                document.location.href = 'daftaruser'
                 </script>";
     }
 }

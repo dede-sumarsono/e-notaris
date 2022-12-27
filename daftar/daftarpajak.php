@@ -7,7 +7,7 @@ session_start();
 if (!isset($_SESSION["login"])) {
     echo "<script>
           alert('Login dulu dong');
-          document.location.href='../login/login.php';
+          document.location.href='../login/login';
           </script>";
           exit;
   }
@@ -17,12 +17,12 @@ if (isset($_POST['tambahsesi3'])) {
     if (sesi3($_POST) > 0) {
         echo "<script>
                 alert('Data berhasil ditambahkan');
-                document.location.href = 'daftarpajak.php'
+                document.location.href = 'daftarpajak'
                 </script>";
     }else {
         echo "<script>
                 alert('Data gagal ditambahkan');
-                document.location.href = 'daftaruser.php'
+                document.location.href = 'daftaruser'
                 </script>";
     }
 }

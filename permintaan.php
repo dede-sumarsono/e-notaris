@@ -5,7 +5,7 @@ session_start();
 if (!isset($_SESSION["login"])) {
     echo "<script>
         alert('Login dulu dong');
-        document.location.href='../login/login.php';
+        document.location.href='../login/login';
         </script>";
         exit;
 }
@@ -21,12 +21,12 @@ if (isset ($_POST['tambah'])) {
   if (create_akun($_POST)>0) {
     echo "<script>
                 alert('Data akun berhasil ditambahkan');
-                document.location.href = 'index.php'
+                document.location.href = 'index'
                 </script>";
   }else {
     echo "<script>
                 alert('Data akun tidak berhasil ditambahkan');
-                document.location.href = 'index.php'
+                document.location.href = 'index'
                 </script>";
   }
 }
@@ -36,12 +36,12 @@ if (isset ($_POST['ubah'])) {
   if (update_akun($_POST)>0) {
     echo "<script>
                 alert('Data akun berhasil diubah');
-                document.location.href = 'index.php'
+                document.location.href = 'index'
                 </script>";
   }else {
     echo "<script>
                 alert('Data akun tidak berhasil diubah');
-                document.location.href = 'index.php'
+                document.location.href = 'index'
                 </script>";
   }
 }
@@ -86,7 +86,7 @@ if (isset ($_POST['ubah'])) {
 
               <td>
               <?php if ($akun['namap2'] == ""): ?>
-                <a href="daftar/daftaruser.php?id_pendaftar=<?=$akun['idpendaftar']?>" class="btn btn-danger">Tambahkan Data Pihak-2</a>
+                <a href="daftar/daftaruser?id_pendaftar=<?=$akun['idpendaftar']?>" class="btn btn-danger">Tambahkan Data Pihak-2</a>
                 <?php endif;?>
                 <?php if ($akun['namap2'] != ""): ?>
                     <?=$akun['namap2']?>
@@ -107,7 +107,7 @@ if (isset ($_POST['ubah'])) {
                 <p>Tunggu Pendaftaran Pajak Selesai</p>
                 
               <?php elseif ($akun['statusu'] == "isi tanggal real"): ?>
-                <a href="daftar/datepicker.php?id_pendaftar=<?=$akun['idpendaftar']?>" class="btn btn-warning">Pilih Tanggal Real</a>
+                <a href="daftar/datepicker?id_pendaftar=<?=$akun['idpendaftar']?>" class="btn btn-warning">Pilih Tanggal Real</a>
                 
                 <?php elseif ($akun['waktureal'] != ""): ?>
                     <?=$akun['waktureal']?>
@@ -268,7 +268,7 @@ if (isset ($_POST['ubah'])) {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
-        <a href="btnphp/hapusakun.php?id_akun=<?= $akun['id_akun']; ?>"  class="btn btn-danger">Hapus</a>
+        <a href="btnphp/hapusakun?id_akun=<?= $akun['id_akun']; ?>"  class="btn btn-danger">Hapus</a>
       </div>
 
     </div>
