@@ -152,9 +152,9 @@ if (isset ($_POST['tambah'])) {
 
     </div>
 <!--portofolio -->
-    <div class="container-fluid pt-5 pb-5 bg-light" >
+    <!--div class="container-fluid pt-5 pb-5 bg-light" >
         <div class="container text-center">
-            <h2 class="display-3" id="portofolio">Portolio</h2>
+            <h2 class="display-3" id="portofolio">Portofolio</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur reiciendis ipsam, explicabo laboriosam fugiat id dolore quaerat adipisci beatae doloribus.</p>
             
             
@@ -197,7 +197,7 @@ if (isset ($_POST['tambah'])) {
 
 
         </div>
-    </div>
+    </div-->
 <!--tentang -->
 <div class="container-fluid pt-5 pb-5">
     <div class="container">
@@ -220,7 +220,7 @@ if (isset ($_POST['tambah'])) {
             <h2 class="display-3" id="owner">Pemilik</h2>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati accusantium numquam cumque omnis at error sit sapiente veritatis. Unde, ullam.</p>
                 <div class="row pt-4 gx-4 gy-4">
-                    <div class="col-md-4 text-center tim">
+                    <div class="col-md-12 text-center tim">
                         <img src="https://s3.amazonaws.com/cms-assets.tutsplus.com/uploads/users/810/profiles/19338/profileImage/profile-square-extra-small.png"
                         class="rounded-circle mb-3"
                         />
@@ -245,30 +245,16 @@ if (isset ($_POST['tambah'])) {
     <div class="container">
         <h2 class="display-3 text-center" id="kontak">Kontak Kami</h2>
         <p class="text-center">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores, repellendus.</p>
-        <div class="row pb-3">
-            <div class="col-md-5">
-
-                <input type="text" 
-                class="form-control form-control-lg mb-3" 
-                placeholder="nama"/>
-
-                <input type="text" 
-                class="form-control form-control-lg mb-3" 
-                placeholder="email"/>
-
-                <input type="text" 
-                class="form-control form-control-lg mb-3" 
-                placeholder="phone"/>
-            </div>
-            <div class="col-md-6">
-                <textarea class="form-control form-control-lg" rows="6"></textarea>
-            </div>
+        <div class="row pb-3 text-center">
+            <div class="col-md-12">
+                <p>0852 3161 1058</p>
+            
+                
         </div>
 
         <div class="col-md-3 mx-auto text-center">
-            <button type="button" class="btn btn-danger btn-lg">
-                Kirim Pesan
-            </button>
+           
+
         </div>
     </div>
 </div>
@@ -287,7 +273,7 @@ if (isset ($_POST['tambah'])) {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
-      <div class="modal-body">
+      <div class="modal-body" style="color:black">
         <form action="" method="post">
 
           <div class="mb-3">
@@ -332,7 +318,7 @@ if (isset ($_POST['tambah'])) {
         <button type="submit" name="tambah" class="btn btn-success">Tambah</button>
         
       </div>
-      <div class="container text-center"><p>Perhatian, Username tidak akan bisa diganti lagi nanti.
+      <div class="container text-center" style="color:black"><p>Perhatian, Username tidak akan bisa diganti lagi nanti.
       <br>Namun hal ini tidak mempengaruhi data pendaftaran.</p></div>
       </form>
 

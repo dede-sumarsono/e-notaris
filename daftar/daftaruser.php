@@ -142,7 +142,7 @@ echo $id_akun;
 </div>
 
 
-    <button name='tambahuser' type="submit" class="btn btn-primary mb-5" style="margin-top:25px">Kirim berkas</button>
+    <button name='tambahuser' type="submit" class="btn btn-primary mb-5" style="margin-top:25px">Simpan</button>
     </form>
 
 

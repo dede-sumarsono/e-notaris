@@ -255,7 +255,7 @@ if (isset($_POST['tambah'])) {
     </div>
 </div>
 </div>
-    <button name='tambah' type="submit" class="btn btn-primary mb-5" style="margin-top:25px">Kirim berkas</button>
+    <button name='tambah' type="submit" class="btn btn-primary mb-5" style="margin-top:25px">Simpan</button>
     </form>
 
 

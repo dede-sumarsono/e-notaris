@@ -1,4 +1,5 @@
-<?php include '../layout/header.php';
+<?php 
+
 include '../config/app.php';
 
 
@@ -13,7 +14,7 @@ if (!isset($_SESSION["login"])) {
   }
 
 //cek apakah tombol tambah ditekan
-if (isset($_POST['tetapkan'])) {
+if (isset($_POST['tetapkan']) && $_SESSION['level']==2) {
     if (create_tanggalreal($_POST) > 0) {
         echo "<script>
                 alert('Data berhasil ditambahkan');
@@ -25,7 +26,27 @@ if (isset($_POST['tetapkan'])) {
                 document.location.href = '../permintaan'
                 </script>";
     }
+}else if (isset($_POST['tetapkan']) && $_SESSION['level']==1) {
+    if (create_tanggalreal($_POST) > 0) {
+        echo "<script>
+                alert('Data berhasil ditambahkan');
+                document.location.href = '../admin/menu_admin'
+                </script>";
+    }else {
+        echo "<script>
+                alert('Data gagal ditambahkan');
+                document.location.href = '../admin/menu_admin'
+                </script>";
+    }
 }
+
+if ($_SESSION['level']==1) {
+    # code...
+    include '../layout/headeradmin.php';
+}elseif($_SESSION['level']==2){
+    include '../layout/header.php';
+}
+
 
 ?>
 

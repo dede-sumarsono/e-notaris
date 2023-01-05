@@ -23,7 +23,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-            <a class="nav-link" href="menu_admin">Home Page</a>
+            <a class="nav-link" href="../admin/menu_admin">Home Page</a>
             </li>
             <li class="nav-item">
             <!--a class="nav-link" href="#">Keluar</a-->

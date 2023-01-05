@@ -182,7 +182,8 @@ if (isset($_POST['tambah'])) {
 
 <div class="col-md-6">
 
-<h4 class="mt-4">Data Suami/Istri dari Pihak Pertama</h4>
+<!--h4 class="mt-4">Data Suami/Istri dari Pihak Pertama</h4-->
+<h4 class="mt-4">Data Persetujuan</h4>
 
     <div class="form-group mt-2">
         <label for="inputAddress">NIK</label>
@@ -240,7 +241,8 @@ if (isset($_POST['tambah'])) {
     </div>
 
     <div class=" mt-3">
-        <label for="fotoktpsi" class="form-label">Pilih File FOTO KTP Suami / Isteri</label>
+        <!--label for="fotoktpsi" class="form-label">Pilih File FOTO KTP Suami / Isteri</label-->
+        <label for="fotoktpsi" class="form-label">Pilih File FOTO KTP Persetujuan</label>
         <input type="file" class="form-control" id="fotoktpsi" name="fotoktpsiw" placeholder="Upload Foto KTP">
         <!--input type="file" class="form-control" id="fotoktp" name="fotoktpw" placeholder="Upload Foto KTP" onchange="previewImg('#fotoktp')"-->
 
@@ -321,7 +323,7 @@ if (isset($_POST['tambah'])) {
     </div>
 </div>
 </div>
-    <button name='tambah' type="submit" class="btn btn-primary mb-5" style="margin-top:25px">Kirim berkas</button>
+    <button name='tambah' type="submit" class="btn btn-primary mb-5" style="margin-top:25px">Simpan</button>
     </form>
 
 
