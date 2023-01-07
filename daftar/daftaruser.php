@@ -135,7 +135,7 @@ echo $id_akun;
     </div>
 
     <div class="mb-3">
-        <label for="stiiskom" class="form-label">Pilih File FOTO STI ISKOM</label>
+        <label for="stiiskom" class="form-label">Surat Keterangan Belum Menikah / Buku Nikah</label>
         <input type="file" class="form-control" id="stiiskom" name="stiiskomw">
     </div>
 </div>

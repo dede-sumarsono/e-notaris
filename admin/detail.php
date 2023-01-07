@@ -569,21 +569,6 @@ $data_akun = select("SELECT * FROM crud INNER JOIN akun ON iduser = id_akun WHER
                                 <td valign="top">:</td>
                                 <td><?= $akun['nomorregisterp2']?></td>
                             </tr>
-                            <tr>
-                                <td valign="top" class="textt">Nomor Register</td>
-                                <td valign="top">:</td>
-                                <td><?= $akun['nomorregisterp2']?></td>
-                            </tr>
-                            <tr>
-                                <td valign="top" class="textt">Nomor Register</td>
-                                <td valign="top">:</td>
-                                <td><?= $akun['nomorregisterp2']?></td>
-                            </tr>
-                            <tr>
-                                <td valign="top" class="textt">Nomor Register</td>
-                                <td valign="top">:</td>
-                                <td><?= $akun['nomorregisterp2']?></td>
-                            </tr>
 
 
                             <tr>
@@ -603,7 +588,7 @@ $data_akun = select("SELECT * FROM crud INNER JOIN akun ON iduser = id_akun WHER
                                 </td>
                             </tr>
                             <tr>
-                                <td valign="center" class="textt">STI ISKOM</td>
+                                <td valign="center" class="textt">Surat Keterangan Belum Menikah / Surat Nikah</td>
                                 <td valign="center">:</td>
                                 <td>
                                     <img src="../assets/img/<?= $akun['stiiskomp2']?>" alt="foto" width="50%" style="display: block; margin-right: auto; margin-left: auto;">

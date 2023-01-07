@@ -186,6 +186,61 @@ function create_pesanan_perorangan($post)
 
     return mysqli_affected_rows($db);
 }
+//ini penting untuk pesanan perorangan dengan menu layanan notaris
+function create_pesanan_perorangan_layanannotaris($post)
+{
+    global $db;
+
+    $namauser = strip_tags($post['namauser']);
+    $iduser = strip_tags($post['userid']);
+    $layanan = strip_tags($post['pelayanan']);
+    $jenislayanan = 'perorangan';
+
+    $nikdir = strip_tags($post['nikdirw']);
+    $namadir = strip_tags($post['namadirw']);
+    $ttl = strip_tags($post['ttlw']);
+    $alamatdir = strip_tags($post['alamatdirw']);
+    $rtrw = strip_tags($post['rtrww']);
+    $kelurahan = strip_tags($post['kelurahanw']);
+    $statusdir = strip_tags($post['statusdirw']);
+    $pekerjaandir = strip_tags($post['pekerjaandirw']);
+    $kewarganegaraan = strip_tags($post['kewarganegaraanw']);
+
+    $nikdir2 = strip_tags($post['nikdirw3']);
+    $namadir2 = strip_tags($post['namadirw3']);
+    $ttl2 = strip_tags($post['ttlw3']);
+    $alamatdir2 = strip_tags($post['alamatdirw3']);
+    $rtrw2 = strip_tags($post['rtrww3']);
+    $kelurahan2 = strip_tags($post['kelurahanw3']);
+    $statusdir2 = strip_tags($post['statusdirw3']);
+    $pekerjaandir2 = strip_tags($post['pekerjaandirw3']);
+    $kewarganegaraan2 = strip_tags($post['kewarganegaraanw3']);
+
+
+
+    $fotoktp = strip_tags(upload_file2($_FILES['fotoktpw']));
+    $fotoktpsi = strip_tags(upload_file2($_FILES['fotoktpsiw']));
+    $kk = strip_tags(upload_file2($_FILES['kkw']));
+    $domisili = strip_tags(upload_file2($_FILES['domisiliw']));
+    $statusu = "isi data pihak ke-2!";
+
+    //check upload file
+    if (!$fotoktp) {
+        return false;
+    }
+
+    
+    $query = "INSERT INTO crud (idpendaftar,pendaftar,iduser,pelayanan,nikdir,namadir,ttl,alamatdir,rtrw,kelurahan,statusdir,pekerjaandir,kewarganegaraan,foto,fotoktpsi,tanggal,statusu,niksi,namasi,ttlsi,alamatsi,statussi,rtrwsi,kelurahansi,pekerjaansi,kewarganegaraansi,jenislayanan,kk,domisili)
+    VALUES (null,'$namauser','$iduser','$layanan','$nikdir','$namadir','$ttl','$alamatdir','$rtrw','$kelurahan','$statusdir','$pekerjaandir','$kewarganegaraan','$fotoktp','$fotoktpsi',CURRENT_TIMESTAMP(),'$statusu','$nikdir2','$namadir2','$ttl2','$alamatdir2','$statusdir2','$rtrw2','$kelurahan2','$pekerjaandir2','$kewarganegaraan2','$jenislayanan','$kk','$domisili')";
+
+
+
+    //$query = "INSERT INTO akun (username) VALUES('$username')";
+
+    mysqli_query($db,$query);
+
+    return mysqli_affected_rows($db);
+}
 
 //ini fungsi utama dari daftar.php
 function create_pesanan($post)
@@ -514,6 +569,34 @@ function update_real($post)
 
     //query tambah data
     $query = "UPDATE crud SET statusu='$statusu' WHERE idpendaftar = $id";
+    
+    
+    
+    //$query = "UPDATE akun SET nama = '$nama', username = '$username', email = '$email', password = '$password', level = '$level' WHERE id_akun = $id_akun ";
+    //$query = "INSERT INTO cruduser VALUES ($iddb,'$noktp','$nama','$ttl','$alamat','$rtrw','$kelurahan','$kecamatan','$statuskawin','$pekerjaan','$kewarganegaraan','$goldar','$nomorregister','$fotoktp','$fotokk','$stiiskom',CURRENT_TIMESTAMP()) WHERE idpendaftar = $iddb";
+    
+    //$query = "INSERT INTO tes VALUES(null,'$noktp','$nama','$ttl')";
+
+    mysqli_query($db,$query);
+
+    return mysqli_affected_rows($db);
+}
+
+function pasca_real($post)
+{
+    global $db;
+
+    $id = strip_tags($post['id']);
+    $statusu = strip_tags($post['status']);
+    
+
+    //check upload file
+    //if (!$fotoktp||!$fotokk||!$stiiskom) {
+    //    return false;
+    //}
+
+    //query tambah data
+    $query = "UPDATE crud SET statuspascareal='$statusu' WHERE idpendaftar = $id";
     
     
     

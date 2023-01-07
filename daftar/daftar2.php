@@ -23,10 +23,25 @@ if (isset($_POST['tambah'])) {
     }else {
         echo "<script>
                 alert('Data gagal ditambahkan');
-                document.location.href = 'daftar'
+                document.location.href = '../permintaan'
                 </script>";
     }
 }
+
+if (isset($_POST['tambahlayanannotaris'])) {
+    //    if (create_barang($_POST) > 0) {
+        if (create_pesanan_perorangan_layanannotaris($_POST) > 0) {
+            echo "<script>
+                    alert('Data berhasil ditambahkan');
+                    document.location.href = '../permintaan'
+                    </script>";
+        }else {
+            echo "<script>
+                    alert('Data gagal ditambahkan');
+                    document.location.href = '../permintaan'
+                    </script>";
+        }
+    }
 
 ?>
 <div><a class="navbar-brand" href="#"><?=$_SESSION['nama'] ?></a></div>
@@ -83,6 +98,11 @@ if (isset($_POST['tambah'])) {
 
         </select>
     </div>
+
+
+
+    <?php if ($_GET['pilihan'] != 'layanannotaris'): ?>
+                 
     <h4 class="mt-3">Data yang Dilimpahkan</h4>
 
     <div class="form-group mt-2">
@@ -323,8 +343,155 @@ if (isset($_POST['tambah'])) {
     </div>
 </div>
 </div>
-    <button name='tambah' type="submit" class="btn btn-primary mb-5" style="margin-top:25px">Simpan</button>
+
+<button name='tambah' type="submit" class="btn btn-primary mb-5" style="margin-top:25px">Simpan</button>
     </form>
+
+<?php elseif ($_GET['pilihan'] == 'layanannotaris'): ?>
+
+        
+        <h4 class="mt-4">Data Penjual (Pihak Pertama)</h4>
+
+        <div class="form-group mt-2">
+            <label for="inputAddress">NIK</label>
+            <input type="number" class="form-control" id="nikdirid" name="nikdirw" placeholder="NIK" required>
+        </div>
+
+        <div class="form-group mt-2">
+            <label for="inputAddress">Nama</label>
+            <input type="text" class="form-control" id="namadirid" name="namadirw" placeholder="Nama" required>
+        </div>
+
+        <div class="form-group mt-2">
+            <label for="inputAddress">Tempat Tanggal Lahir</label>
+            <input type="text" class="form-control" id="ttlid" name="ttlw" placeholder="Tempat Tanggal Lahir" required>
+        </div>
+
+        <div class="form-group mt-2">
+            <label for="inputAddress">Alamat</label>
+            <input type="text" class="form-control" id="alamatdirid" name="alamatdirw" placeholder="Alamat" required>
+        </div>
+
+        <div class="form-group mt-2">
+            <label for="inputAddress">RT / RW</label>
+            <input type="text" class="form-control" id="rtrwdirid" name="rtrww" placeholder="RT / RW" required>
+        </div>
+
+        <div class="form-group mt-2">
+            <label for="inputAddress">Kelurahan / Desa </label>
+            <input type="text" class="form-control" id="kelurahanid" name="kelurahanw" placeholder="Kelurahan / Desa" required>
+        </div>
+
+        <div class="form-group mt-2">
+            <label for="inputAddress">Status </label>
+            <input type="text" class="form-control" id="statusdirid" name="statusdirw" placeholder="Status" required>
+        </div>
+
+        <div class="form-group mt-2">
+            <label for="inputAddress">Pekerjaan</label>
+            <input type="text" class="form-control" id="pekerjaandirid" name="pekerjaandirw" placeholder="Pekerjaan" required>
+        </div>
+
+        <div class="form-group mt-2">
+            <label for="inputAddress">Kewarganegaraan </label>
+            <input type="text" class="form-control" id="kewarganegaraanid" name="kewarganegaraanw" placeholder="Kewarganegaraan" required>
+        </div>
+
+        <h4 class="mt-4">Data Persetujuan</h4>
+
+        <div class="form-group mt-2">
+            <label for="inputAddress">NIK</label>
+            <input type="number" class="form-control" id="nikdirid3" name="nikdirw3" placeholder="NIK">
+        </div>
+
+        <div class="form-group mt-2">
+            <label for="inputAddress">Nama</label>
+            <input type="text" class="form-control" id="namadirid3" name="namadirw3" placeholder="Nama">
+        </div>
+
+        
+        </div>
+
+
+
+        <div class="col-md-6 mt-5">
+
+        <div class="form-group mt-2">
+            <label for="inputAddress">Tempat Tanggal Lahir</label>
+            <input type="text" class="form-control" id="ttlid3" name="ttlw3" placeholder="Tempat Tanggal Lahir">
+        </div>
+
+        <div class="form-group mt-2">
+            <label for="inputAddress">Alamat</label>
+            <input type="text" class="form-control" id="alamatdirid3" name="alamatdirw3" placeholder="Alamat">
+        </div>
+
+        <div class="form-group mt-2">
+            <label for="inputAddress">RT / RW</label>
+            <input type="text" class="form-control" id="rtrwdirid3" name="rtrww3" placeholder="RT / RW">
+        </div>
+
+        <div class="form-group mt-2">
+            <label for="inputAddress">Kelurahan / Desa </label>
+            <input type="text" class="form-control" id="kelurahanid3" name="kelurahanw3" placeholder="Kelurahan / Desa">
+        </div>
+
+        <div class="form-group mt-2">
+            <label for="inputAddress">Status </label>
+            <input type="text" class="form-control" id="statusdirid3" name="statusdirw3" placeholder="Status">
+        </div>
+
+        <div class="form-group mt-2">
+            <label for="inputAddress">Pekerjaan</label>
+            <input type="text" class="form-control" id="pekerjaandirid3" name="pekerjaandirw3" placeholder="Pekerjaan">
+        </div>
+
+        <div class="form-group mt-2">
+            <label for="inputAddress">Kewarganegaraan </label>
+            <input type="text" class="form-control" id="kewarganegaraanid3" name="kewarganegaraanw3" placeholder="Kewarganegaraan">
+        </div>
+
+
+        <h4 class="mt-5">Upload File</h4>
+        <div class=" mt-3">
+            <label for="fotoktp" class="form-label">Pilih File FOTO KTP Pihak Pertama</label>
+            <input type="file" class="form-control" id="fotoktp" name="fotoktpw" placeholder="Upload Foto KTP">
+            
+        </div>
+
+        <div class=" mt-3">
+            <label for="fotoktpsi" class="form-label">Pilih File FOTO KTP Persetujuan</label>
+            <input type="file" class="form-control" id="fotoktpsi" name="fotoktpsiw" placeholder="Upload Foto KTP">
+            
+        </div>
+
+        <div class="mb-3 mt-3">
+            <label for="kk" class="form-label">Pilih File FOTO KK</label>
+            <input type="file" class="form-control" id="kk" name="kkw" placeholder="Upload Foto KK">
+        </div>
+
+        <div class="mb-3 mt-3">
+            <label for="domisili" class="form-label">Surat Keterangan Domisili</label>
+            <input type="file" class="form-control" id="domisili" name="domisiliw" placeholder="Upload Foto Surat Keterangan Domisili">
+        </div>
+
+        
+        
+        
+
+        
+
+        
+        </div>
+        </div>
+        <button name='tambahlayanannotaris' type="submit" class="btn btn-primary mb-5" style="margin-top:25px">Simpan</button>
+        </form>
+
+<?php endif;?>
+
+
+
+    
 
 
 
