@@ -51,6 +51,7 @@ if (isset($_POST['tambah'])) {
            
     <input type="hidden" class="form-control mb-2" id="namauser" name="namauser" value="<?=$_SESSION['nama'] ?>" required>
     <input type="hidden" class="form-control mb-2" id="userid" name="userid" value="<?=$_SESSION['id_akun'] ?>" required>
+    <input type="hidden" class="form-control mb-2" id="menulayanan" name="menulayanan" value="<?=$_GET['pilihan'] ?>" required>
    
 
     <div class="form-group">
@@ -127,12 +128,17 @@ if (isset($_POST['tambah'])) {
         <input type="text" class="form-control" id="hargajualbeliid" name="hargajualbeliw" placeholder="Harga Jual Beli">
     </div>
 
+
+
+
+
+    <?php if ($_GET['pilihan'] != 'haktanggungan'): ?>
+    <h4 class="mt-3">Data Direktur</h4>
+
     <div class="form-group mt-2">
         <label for="inputAddress">NIK(Direktur)</label>
         <input type="number" class="form-control" id="nikdirid" name="nikdirw" placeholder="NIK">
     </div>
-
-    <h4 class="mt-3">Data yang Direktur</h4>
 
     <div class="form-group mt-2">
         <label for="inputAddress">Nama (Direktur)</label>
@@ -174,6 +180,62 @@ if (isset($_POST['tambah'])) {
         <input type="text" class="form-control" id="kewarganegaraanid" name="kewarganegaraanw" placeholder="Kewarga Negaraan">
     </div>
 </div>
+
+<?php elseif ($_GET['pilihan'] == 'haktanggungan'): ?>
+    <h4 class="mt-3">Data Debitur</h4>
+
+    <div class="form-group mt-2">
+        <label for="inputAddress">NIK(Debitur)</label>
+        <input type="number" class="form-control" id="nikdirid" name="nikdirw" placeholder="NIK">
+    </div>
+
+    <div class="form-group mt-2">
+        <label for="inputAddress">Nama (Debitur)</label>
+        <input type="text" class="form-control" id="namadirid" name="namadirw" placeholder="Nama Debitur">
+    </div>
+
+    <div class="form-group mt-2">
+        <label for="inputAddress">Tempat Tanggal Lahir (Debitur)</label>
+        <input type="text" class="form-control" id="ttlid" name="ttlw" placeholder="Tempat Tanggal Lahir">
+    </div>
+
+    <div class="form-group mt-2">
+        <label for="inputAddress">Alamat (Debitur)</label>
+        <input type="text" class="form-control" id="alamatdirid" name="alamatdirw" placeholder="Alamat">
+    </div>
+
+    <div class="form-group mt-2">
+        <label for="inputAddress">RT / RW (Debitur)</label>
+        <input type="text" class="form-control" id="rtrwdirid" name="rtrww" placeholder="RT / RW">
+    </div>
+
+    <div class="form-group mt-2">
+        <label for="inputAddress">Kelurahan / Desa (Debitur)</label>
+        <input type="text" class="form-control" id="kelurahanid" name="kelurahanw" placeholder="Kelurahan / Desa">
+    </div>
+
+    <div class="form-group mt-2">
+        <label for="inputAddress">Status (Debitur)</label>
+        <input type="text" class="form-control" id="statusdirid" name="statusdirw" placeholder="Status">
+    </div>
+
+    <div class="form-group mt-2">
+        <label for="inputAddress">Pekerjaan(Debitur)</label>
+        <input type="text" class="form-control" id="pekerjaandirid" name="pekerjaandirw" placeholder="Pekerjaan">
+    </div>
+
+    <div class="form-group mt-2">
+        <label for="inputAddress">Kewarganegaraan (Debitur)</label>
+        <input type="text" class="form-control" id="kewarganegaraanid" name="kewarganegaraanw" placeholder="Kewarga Negaraan">
+    </div>
+    </div>
+    <?php endif;?> 
+
+
+
+
+
+
 
 
 

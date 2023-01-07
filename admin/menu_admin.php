@@ -105,7 +105,7 @@ $data_barang = select("SELECT * FROM crud WHERE statusu ='Pendaftaran Selesai' O
               <td>
               <a href="detail?id_pendaftar=<?=$akun['idpendaftar']?>" class="btn btn-success">Detail</a>
               <!--a data-bs-toggle="modal" data-bs-target="#modaltambah" href="#">Real Selesai</a-->
-              <!--button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modaltambah<-?= $akun['idpendaftar'];?>">Real Selesai</button-->
+              <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modaltambah<?= $akun['idpendaftar'];?>">Real Selesai</button>
               <!--button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalrubahstatus<!?= $akun['idpendaftar'];?>">Rubah Status</button-->
               <a href="../daftar/datepicker?id_pendaftar=<?=$akun['idpendaftar']?>" class="btn btn-warning">Rubah Tanggal Real</a>
               </td>

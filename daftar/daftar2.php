@@ -66,6 +66,7 @@ if (isset($_POST['tambahlayanannotaris'])) {
            
     <input type="hidden" class="form-control mb-2" id="namauser" name="namauser" value="<?=$_SESSION['nama'] ?>" required>
     <input type="hidden" class="form-control mb-2" id="userid" name="userid" value="<?=$_SESSION['id_akun'] ?>" required>
+    <input type="hidden" class="form-control mb-2" id="menulayanan" name="menulayanan" value="<?=$_GET['pilihan'] ?>" required>
    
 
     <div class="form-group">

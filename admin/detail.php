@@ -64,6 +64,7 @@ $data_akun = select("SELECT * FROM crud INNER JOIN akun ON iduser = id_akun WHER
                                 <td style="font-weight:bold"><?= $akun['notelepon']?></td>
                             </tr>
 
+                            
                             <!--tr>
                                 <td class="textt">Pelayanan yang dipilih</td>
                                 <td>:</td>
@@ -73,10 +74,16 @@ $data_akun = select("SELECT * FROM crud INNER JOIN akun ON iduser = id_akun WHER
                             <tr>
                                 <td class="textt">Jeni Pelayanan</td>
                                 <td>:</td>
-                                <td><?= $akun['jenislayanan']?></td>
+                                <td style="font-weight:bold"><?= $akun['jenislayanan']?></td>
                             </tr>
 
-            <?php if ($akun['jenislayanan'] == 'pt'): ?>
+                            <tr>
+                                <td width="25%" valign="top" class="textt">Layanan</td>
+                                <td width="2%">:</td>
+                                <td style="font-weight:bold"><?= $akun['pelayanan']?></td>
+                            </tr>
+
+            <?php if ($akun['jenislayanan'] == 'pt' || $akun['jenislayanan'] == 'PT'): ?>
 
                             <tr>
                                 <td class="textt">Nama Direktur</td>
@@ -294,9 +301,9 @@ $data_akun = select("SELECT * FROM crud INNER JOIN akun ON iduser = id_akun WHER
                                 </td>
                             </tr>
                 
-            <?php elseif ($akun['jenislayanan'] == 'perorangan'): ?>
-                
-                             
+
+
+            <?php elseif ($akun['jenislayanan'] == 'perorangan' || $akun['jenislayanan'] == 'Perorangan'): ?>
                             <h4>Pihak Pertama</h4>
                             <tr>
                                 <td class="textt">Nama </td>
@@ -394,6 +401,8 @@ $data_akun = select("SELECT * FROM crud INNER JOIN akun ON iduser = id_akun WHER
                             </tr>
 
                             <tr><td><br></td></tr>
+
+                <?php if ($akun['pelayanan'] != 'Akta Perjanjian Kawin' && $akun['pelayanan'] != 'Pendirian CV' && $akun['pelayanan'] != 'Pendirian PT' && $akun['pelayanan'] != 'Hibah Merk'): ?>
                             <tr><td><h4>Data Yang Diurus</h4></td></tr>
                             <tr>
                                 <td valign="top" class="textt">Nomor SHGB</td>
@@ -440,6 +449,9 @@ $data_akun = select("SELECT * FROM crud INNER JOIN akun ON iduser = id_akun WHER
                                 <td valign="top">:</td>
                                 <td><?= $akun['hargajualbeli']?></td>
                             </tr>
+
+                    <?php endif;?> 
+
                             <tr>
                                 <td valign="center" class="textt">Foto KTP</td>
                                 <td valign="center">:</td>
@@ -457,7 +469,30 @@ $data_akun = select("SELECT * FROM crud INNER JOIN akun ON iduser = id_akun WHER
                                 <a href="download.php?file=<?= $akun['fotoktpsi']?>"><p style="text-align:center">Download</p></a>
                                 </td>
                             </tr>
+
+                            <?php if ($akun['pelayanan'] == 'Akta Perjanjian Kawin' || $akun['pelayanan'] == 'Pendirian CV' || $akun['pelayanan'] == 'Pendirian PT' || $akun['pelayanan'] == 'Hibah Merk'): ?>
+                                <tr>
+                                <td valign="center" class="textt">Foto KK</td>
+                                <td valign="center">:</td>
+                                <td>
+                                <img src="../assets/img/<?= $akun['kk']?>" alt="foto" width="50%" style="display: block; margin-right: auto; margin-left: auto;">
+                                <a href="download.php?file=<?= $akun['kk']?>"><p style="text-align:center">Download</p></a>
+                                </td>
+                                </tr>
+
+                                <tr>
+                                <td valign="center" class="textt">Foto Surat Domisili</td>
+                                <td valign="center">:</td>
+                                <td>
+                                <img src="../assets/img/<?= $akun['domisili']?>" alt="foto" width="50%" style="display: block; margin-right: auto; margin-left: auto;">
+                                <a href="download.php?file=<?= $akun['domisili']?>"><p style="text-align:center">Download</p></a>
+                                </td>
+                                </tr>
+
+                            <?php endif;?>
+
                             
+                            <?php if ($akun['pelayanan'] != 'Akta Perjanjian Kawin' && $akun['pelayanan'] != 'Pendirian CV' && $akun['pelayanan'] != 'Pendirian PT' && $akun['pelayanan'] != 'Hibah Merk'): ?>
                             <tr>
                                 <td valign="center" class="textt">PPB</td>
                                 <td valign="center">:</td>
@@ -499,6 +534,7 @@ $data_akun = select("SELECT * FROM crud INNER JOIN akun ON iduser = id_akun WHER
                                     <a href="download.php?file=<?= $akun['fotolokasi']?>"><p style="text-align:center">Download</p></a>
                                 </td>
                             </tr>
+                            <?php endif;?> 
             <?php endif;?>  
 
                         </tbody>
